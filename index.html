@@ -8,40 +8,20 @@
 </head>
 <body>
     <div id="app">
-        <input v-model="message">
-        {{message}}
-        {{count}}
-        <ul>
-            <li v-for="item in items">{{ item }}</li>
-        </ul>
-        <button v-on:click="buttonClick">Click me!!</button>
+        {{" My name is " + name}}
+        {{"My age is " + age}}
+        <span v-html="DataHtml"></span> //writes the raw html
     </div>
  
     <script>
-        var x = new Vue({
+        new Vue({
             el: '#app',
             data: {
-                'message':'Hello World',
-                'items':['test','test1'],
-                'count':1500,
-            },
-            methods: {
-                buttonClick: function(){
-                    alert("yes")
-                },
-                test: function()
-                {
-                    return this.count + 6;
-                }
+                'name':'John',
+                'age': '20',
+                'DataHtml': '<b> I am bold </b>'
             }
-
-        });
-
-        window.setInterval(function(){
-            x.count++;
-        },1000);
-
-        
+        })
     </script>
 </body>
 </html>
