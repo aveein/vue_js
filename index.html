@@ -8,18 +8,19 @@
 </head>
 <body>
     <div id="app">
-        {{" My name is " + name}}
-        {{"My age is " + age}}
-        <span v-html="DataHtml"></span> //writes the raw html
+        {{isValid ? "Successfull" : "Failed" }}
+        {{ name.split('').reverse().join('')}}
+        <span :id="'post-' + id">Post</span>
     </div>
  
     <script>
         new Vue({
             el: '#app',
             data: {
-                'name':'John',
                 'age': '20',
-                'DataHtml': '<b> I am bold </b>'
+                'isValid': true,
+                'name': 'John',
+                'id': 12
             }
         })
     </script>
