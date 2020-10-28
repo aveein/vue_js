@@ -11,22 +11,26 @@
         <ul>
             <li v-for="name in names" v-text="name"></li>
         </ul>
-        <input type="text" value="">
-        <button type="button" id="button" >Add Name</button>
+        <input type="text" value="" v-model="newName">
+        <button type="button" v-on:click="addName">Add Name</button>
     </div>
  
-    <script>
+    <script> 
         var app = new Vue({
             el: '#root',
             data: {
-                names: ['avin']
-            }
+                names: ['avin'],
+                newName: '',
+            },
+            methods:{  //any custom method that we add that should be nested inside methods object
+                addName(){
+                    this.names.push(this.newName);
+                }
+            },
+      
         });
-        document.querySelector('#button').addEventListener('click',()=>{
-            let name = document.querySelector('input');
-            app.names.push(name.value);
-            name.value='';
-        });
+      
+     
     </script>
 </body>
 </html>
