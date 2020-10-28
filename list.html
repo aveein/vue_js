@@ -11,14 +11,21 @@
         <ul>
             <li v-for="name in names" v-text="name"></li>
         </ul>
+        <input type="text" value="">
+        <button type="button" id="button" >Add Name</button>
     </div>
  
     <script>
-        new Vue({
+        var app = new Vue({
             el: '#root',
             data: {
                 names: ['avin']
             }
+        });
+        document.querySelector('#button').addEventListener('click',()=>{
+            let name = document.querySelector('input');
+            app.names.push(name.value);
+            name.value='';
         });
     </script>
 </body>
