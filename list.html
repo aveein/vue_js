@@ -11,8 +11,8 @@
         <ul>
             <li v-for="name in names" v-text="name"></li>
         </ul>
-        <input type="text" value="" v-model="newName">
-        <button type="button" v-on:click="addName">Add Name</button>
+        <input type="text" value="" v-model="newName" v-on:keyUp="addName">
+        <button type="button" @click="addName">Add Name</button>
     </div>
  
     <script> 
@@ -25,6 +25,7 @@
             methods:{  //any custom method that we add that should be nested inside methods object
                 addName(){
                     this.names.push(this.newName);
+                    this.newName = '';
                 }
             },
       
